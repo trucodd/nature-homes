@@ -1,10 +1,14 @@
 from django.shortcuts import render
 
 # Create your views here.
-from.cart import Cart
+from .cart import Cart
 
 def add_to_cart(request, product_id):
     cart = Cart(request)
     cart.add(product_id)
 
-    return render(request, 'cart/menu_cart.html')
+    return render(request, 'cart/menu_cart.html', {'cart': cart})
+def cart(request):
+    return render(request, 'cart/cart.html')
+def checkout(request):
+    return render(request, 'cart/checkout.html')
