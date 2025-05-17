@@ -39,3 +39,5 @@ def shop(request):
         'active_category':active_category
     }
     return render(request, 'core/shop.html', context)
+
+

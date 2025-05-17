@@ -16,8 +16,8 @@
           <h2 class="text-lg font-semibold">SHIPPING INFORMATION</h2>
 
           <div class="grid md:grid-cols-2 gap-4">
-            <input type="text" placeholder="First name" class="p-3 border border-gray-300 rounded-md w-full"/>
-            <input type="text" placeholder="Last name" class="p-3 border border-gray-300 rounded-md w-full"/>
+            <input type="text" placeholder="First name" value="{{ request.user.first_name }}" class="p-3 border border-gray-300 rounded-md w-full"/>
+            <input type="text" placeholder="Last name" value="{{ request.user.last_name }}" class="p-3 border border-gray-300 rounded-md w-full"/>
           </div>
 
           <input type="text" placeholder="Address" class="p-3 border border-gray-300 rounded-md w-full"/>
@@ -31,7 +31,7 @@
         <!-- Contact Info -->
         <div class="bg-gray-100 p-6 rounded-lg space-y-4">
             <h2 class="text-lg font-semibold">CONTACT INFORMATION</h2>
-            <input type="email" placeholder="Email" class="p-3 border border-gray-300 rounded-md w-full"/>
+            <input type="email" placeholder="Email" value="{{ request.user.email }}" class="p-3 border border-gray-300 rounded-md w-full"/>
             <input type="tel" placeholder="Phone" class="p-3 border border-gray-300 rounded-md w-full"/>
           </div>
         
@@ -46,7 +46,7 @@
         <h2 class="text-lg font-semibold mb-4">SUMMARY</h2>
         <div class="flex justify-between mb-4">
           <span class="font-medium">Total</span>
-          <span class="font-medium">$99</span>
+          <span class="font-medium">${{cart.get_total_price}}</span>
         </div>
         <button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-md">
           Confirm checkout

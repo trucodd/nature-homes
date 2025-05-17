@@ -6,20 +6,23 @@
     <!-- Products List -->
     <div class="w-full lg:w-3/4 space-y-6">
         <!-- Product Item -->
+         {% for item in cart %}
         <div class="flex items-center justify-between border-b pb-6">
             <div class="flex items-center space-x-6 w-2/3">
-                <img src="1.jpg" class="w-16 h-16 object-cover rounded-xl shadow" alt="Product Image">
-                <span class="font-semibold text-lg">Product name</span>
+                <img src="{{ item.product.get_thumbnail }}" class="w-16 h-16 object-cover rounded-xl shadow" alt="Product Image">
+                <span class="font-semibold text-lg">{{item.product.name}}</span>
             </div>
             <div class="flex items-center space-x-2">
                 <a href="#" class="px-3 py-1 bg-gray-100 rounded">-</a>
                 <span class="px-2">2</span>
                 <a href="#" class="px-3 py-1 bg-gray-100 rounded">+</a>
             </div>
-            <span class="text-gray-500 w-1/6 text-right">$9.99</span>
+            <span class="text-gray-500 w-1/6 text-right">${{item.total_price}}</span>
         </div>
+        {% endfor %}
+    </div>
 
-        <!-- Repeat Product Item -->
+        <!-- 
         <div class="flex items-center justify-between border-b pb-6">
             <div class="flex items-center space-x-6 w-2/3">
                 <img src="1.jpg" class="w-16 h-16 object-cover rounded-xl shadow" alt="Product Image">
@@ -39,7 +42,7 @@
         <h2 class="uppercase text-lg font-semibold mb-4">Summary</h2>
         <div class="flex justify-between text-gray-800 mb-6">
             <span class="font-semibold">Total</span>
-            <span class="font-semibold">$99</span>
+            <span class="font-semibold">${{cart.get_total_price}}</span>
         </div>
         <a href="#" class="block w-full text-center bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-xl transition">
             Checkout
