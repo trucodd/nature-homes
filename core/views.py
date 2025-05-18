@@ -19,7 +19,7 @@ def signup(request):
             return redirect('/')
     else:
         form=SignupForm()
-    return render (request, 'core/signup.html')
+    return render (request, 'core/signup.html', {'form':form})
 def login_old(request):
     return render (request, 'core/login.html')
 
